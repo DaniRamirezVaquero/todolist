@@ -16,13 +16,11 @@
 
 </head>
 
-<body class="font-sans antialiased">
-    <div>
-        @section('main')
-        <!-- Aqui va el contenido POR DEFECTO de la seccion main -->
-        <p class="text-xl font-bold">@lang('todolist.bienvenida')</p>
-        @show <!-- Cierre de la seccion main -->
-    </div>
+<body class="font-sans antialiased flex items-center flex-col">
+          @section('main')
+          <!-- Aqui va el contenido POR DEFECTO de la seccion main -->
+          <p class="text-xl font-bold">@lang('todolist.bienvenida')</p>
+          @show <!-- Cierre de la seccion main -->
 </body>
 
 </html>
