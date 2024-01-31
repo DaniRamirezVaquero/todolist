@@ -15,18 +15,19 @@
 
 <body class="antialiased ">
     <header>
-        <form action="{{route('logout')}}" method="post">
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
             <button>Logout</button>
         </form>
     </header>
     <div class="bg-gray-900 rounded shadow p-6 w-full">
         <h1 class="my-0">Tareas del usuario</h1>
-        <p class="mt-0 mb-3 italic w-full text-right">"@lang('todolist.bienvenida')"</p>
+        <p class="mt-0 mb-3 w-full text-right">Hola, {{$usuario->nombre}}</p>
 
         <ul>
             @forelse ($tareas as $tarea)
                 <div class="bg-gray-800 flex mb-4 items-center rounded p-3 px-6">
-                    @includeWhen($tarea->completa,'components.tarea-completa')
+                    @includeWhen($tarea->completa, 'components.tarea-completa')
                     @includeWhen(!$tarea->completa, 'components.tarea-incompleta')
                     <li class="w-1/5 text-grey-darkest text-wrap text-center">
                         {{ $tarea->fecha->format('d/m/Y') }}</li>

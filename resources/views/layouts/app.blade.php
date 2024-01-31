@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="font-sans antialiased flex items-center flex-col">
+<body class="font-sans antialiased flex items-center flex-col bg-gray-900">
           @section('main')
           <!-- Aqui va el contenido POR DEFECTO de la seccion main -->
           <p class="text-xl font-bold">@lang('todolist.bienvenida')</p>
