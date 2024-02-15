@@ -16,7 +16,10 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::view('/', 'welcome');
-Route::get('/dashboard', [UsuarioController::class, 'main'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [UsuarioController::class, 'main'])->middleware('auth')->name('dashboard');
+
+// Route::post('/tareas/{id}/completar', 'TareaController@completar');
+// Route::post('/tareas/{id}/incompletar', 'TareaController@incompletar');
 
 // RUTAS PARA APRENDER
 // Route::get('/bienvenidos', function () {
@@ -26,11 +29,11 @@ Route::get('/dashboard', [UsuarioController::class, 'main'])->middleware(['auth'
 // Esto es lo mismo que lo de arriba
 Route::view('/bienvenidos', 'bienvenidos');
 Route::post('/bienvenidosPOST', function () {
-    echo "Hola, he recibido el formulario por el método POST";
-})-> name('miruta');
+  echo "Hola, he recibido el formulario por el método POST";
+})->name('miruta');
 
 // Es lo mismo que lo de arriba -> [Controlador, 'método']
-Route::get('/colores/', [UsuarioController::class, 'mostrarPerfil']) -> name('colores');;
+Route::get('/colores/', [UsuarioController::class, 'mostrarPerfil'])->name('colores');;
 
 // Se le puede pasar un parámetro opcional con el signo de interrogación
 // Si no se le pasa nada, por defecto será 1
@@ -45,9 +48,9 @@ Route::get('/colores/', [UsuarioController::class, 'mostrarPerfil']) -> name('co
 // });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

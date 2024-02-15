@@ -1,5 +1,9 @@
 <?php
 
 return [
-    "bienvenida" => "Inhale, exhale, create your ToDolists"
+    "appname" => "Todo List",
+    "bienvenida" => "Inhale, exhale, create your ToDoLists",
+    "Email-ph" => "Email",
+    "Password-ph" => "Password",
+
 ];

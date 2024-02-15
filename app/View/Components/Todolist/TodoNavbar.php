@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\todolist;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class TodoInputEmail extends Component
+class TodoNavbar extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class TodoInputEmail extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.todo-input-password');
+        return view('components.todolist.todo-navbar');
     }
 }

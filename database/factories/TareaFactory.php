@@ -18,7 +18,7 @@ class TareaFactory extends Factory
     {
         return [
             'idUsu' => $this->faker->numberBetween(1, 10) ,
-            'texto' => $this->faker->paragraph() ,
+            'texto' => $this->faker->words(3, true) ,
             'completa' => $this->faker->boolean() ,
             'fecha' => $this->faker->date() ,
         ];

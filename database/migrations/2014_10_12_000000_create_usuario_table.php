@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
+            $table->boolean('perfil')->default(false); // True - admin / False - usuario
+
             $table->timestamps();
 
             $table->timestamp('deleted_at')->nullable();

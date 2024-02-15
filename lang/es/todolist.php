@@ -2,6 +2,8 @@
 
 return [
     "appname" => "Todo List",
-    "bienvenidos" => "Bienvenido!!",
-    "bienvenida" => "Inhala, exhala, crea tus listas de tareas",
+    "bienvenida" => "Inhala, exhala, organiza tus tareas",
+    "Email-ph" => "Correo Electrónico",
+    "Password-ph" => "Contraseña",
+
 ];
