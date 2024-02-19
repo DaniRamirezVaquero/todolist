@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class TareaController extends Controller
 {
+
+  
+
+
   public function completar($id)
 {
     $tarea = Tarea::find($id);

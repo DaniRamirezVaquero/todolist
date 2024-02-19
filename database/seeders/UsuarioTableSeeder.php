@@ -17,7 +17,6 @@ class UsuarioTableSeeder extends Seeder
         DB::table('usuario')->insert([
             'nombre' => 'admin',
             'apellido' => 'admin',
-            'foto' => 'https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-admin.png',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),
             'perfil' => true,

@@ -28,7 +28,6 @@ class UsuarioFactory extends Factory
             'apellido' => $this->faker->lastName(),
             'email' => $this->faker->unique()->email(),
             'password' =>  Hash::make('12345678'),
-            'foto' => $this->faker->imageUrl($width = 200, $height = 200 )
         ];
     }
 
