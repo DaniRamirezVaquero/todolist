@@ -12,17 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call(EtiquetaTableSeeder::class);
+        $this->call(EtiquetaTableSeeder::class);
 
         \App\Models\Usuario::factory(10)->create();
-        \App\Models\Etiqueta::factory(20)->create();
-        \App\Models\Tarea::factory(15)->create();
+        \App\Models\Tarea::factory(5)->create();
 
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

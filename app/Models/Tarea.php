@@ -41,11 +41,11 @@ class Tarea extends Model
 		return $this->belongsTo(Usuario::class, 'idUsu');
 	}
 
-	public function etiquetas()
+	public function etiqueta()
 	{
 		// Utilizamos el método belongsToMany() para indicar que una tarea puede tener varias etiquetas
 		// Este método recupera las etiquetas de una tarea en un objeto de tipo Relation
-		return $this->belongsToMany(Etiqueta::class, 'tarea_etiqueta', 'idTar', 'idEti');
+		return $this->hasOne(Etiqueta::class, 'idEti');
 	}
 
 	/**

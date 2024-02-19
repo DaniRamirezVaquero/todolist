@@ -16,6 +16,8 @@ return new class extends Migration
             // Atributos de la tabla
             $table->id('idTar'); // Crea la clave primaria con autoincremento, nombre idTar, será de tipo bigInteger
             $table->unsignedBigInteger('idUsu'); // Clave foránea, será de tipo bigInteger
+            // Clave foránea que referencia a la etiqueta de la tarea
+            $table->unsignedBigInteger('idEti')->nullable(); // Clave foránea, será de tipo bigInteger
 
             $table->text('texto');
             $table->boolean('completa')->default(false);
@@ -30,6 +32,9 @@ return new class extends Migration
             // Claves foráneas
             $table->foreign('idUsu')->references('idUsu')->on('usuario')
                 ->onDelete('cascade'); // Si se borra un usuario, se borran sus tareas
+
+            $table->foreign('idEti')->references('idEti')->on('etiqueta')
+                ->onDelete('set null'); // Si se borra una etiqueta, se pone a null la clave foránea en la tarea
         });
     }
 
