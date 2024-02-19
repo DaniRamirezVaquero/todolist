@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -18,9 +18,8 @@
 
 <body class="font-sans antialiased flex items-center content-center flex-col bg-gray-900 h-screen">
     @section('main')
-        <!-- Aqui va el contenido POR DEFECTO de la seccion main -->
-        <p class="text-xl font-bold">@lang('todolist.bienvenida')</p>
-    @show <!-- Cierre de la seccion main -->
+
+    @show
 </body>
 
 </html>
