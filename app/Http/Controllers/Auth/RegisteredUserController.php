@@ -30,17 +30,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Usuario::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+      $request->validate([
+        'nombre' => ['required', 'string', 'max:100'],
+        'apellido' => ['required', 'string', 'max:100'],
+        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Usuario::class],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+      ]);
 
-        $user = Usuario::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+      $user = Usuario::create([
+        'nombre' => $request->nombre,
+        'apellido' => $request->apellido,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'foto' => 'https://via.placeholder.com/200x200.png/005511?text=Default'
+    ]);
 
         event(new Registered($user));
 

@@ -1,52 +1,54 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+@extends('layouts.login_register')
+
+@section('form')
+    <form action="{{ route('register') }}" method="post" class="flex flex-col justify-center">
         @csrf
+        <span class="mb-1.5 mt-6 text-2xl font-sans font-bold text-gray-900 text-center"> {{ __('todolist.new_account') }}
+        </span>
+        <hr class="mb-6">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class='grid gap-2'>
+
+            <!-- Name -->
+            <div>
+                <x-todolist.todo-input id="nombre" class="block w-full" type="text" name="nombre" :value="old('name')"
+                    required autofocus autocomplete="name" placeholder="{{ __('Name') }}" />
+            </div>
+
+            <!-- LastName -->
+            <div>
+                <x-todolist.todo-input id="apellido" class="block w-full" type="text" name="apellido" :value="old('apellido')"
+                    required autofocus autocomplete="family-name" placeholder="{{ __('Last name') }}" />
+            </div>
+
+            <!-- Email -->
+            <div class="mt-4">
+                <x-todolist.todo-input class="w-60" type='email' name='email' :value="old('email')"
+                    placeholder="{{ __('E-Mail Address') }}" autofocus required autocomplete="off" />
+            </div>
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-todolist.todo-input class="w-60" type='password' name='password' placeholder="{{ __('Password') }}"
+                    required autocomplete="current-password" />
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+                <x-todolist.todo-input id="password_confirmation" class="block w-full" type="password"
+                    name="password_confirmation" required autocomplete="new-password"
+                    placeholder="{{ __('Confirm Password') }}" />
+            </div>
+
+            <x-todolist.todo-alerta :$errors />
+
+            <x-todolist.todo-primary-button
+                class="mt-2 justify-center">{{ __('todolist.register') }}</x-todolist.todo-primary-button>
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <div class="flex justify-center mt-4">
+            <p class="text-xs text-gray-300"> {{ __('todolist.registed') }} </p>
+            <a href="{{ route('login') }}"
+                class="text-xs text-gray-200 hover:text-gray-100 ml-1 underline">{{ __('Login') }}</a>
     </form>
-</x-guest-layout>
+@endsection
