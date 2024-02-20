@@ -13,10 +13,11 @@ class UsuarioController extends Controller
    */
   public function main()
   {
-
     // Recupero el usuario
     $usuario = Auth::user();
 
-    return view('usuario.main', ['tareas' => $usuario->tareas, 'usuario' => $usuario]);
+    $tareas = $usuario->tareas->sortBy('fecha');
+
+    return view('usuario.main', ['tareas' => $tareas, 'usuario' => $usuario]);
   }
 }

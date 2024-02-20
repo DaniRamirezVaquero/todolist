@@ -9,4 +9,13 @@ return [
     "new_account" => "Create account",
     "register" => "Register",
     "saludo" => "Welcome",
+    "newTask" => "New Task",
+    "tags" => "Tags",
+    "tag" => "Tag",
+    "task" => "Task",
+    "date" => "Date",
+    "selectTags" => "Select a tag",
+    "none" => "None",
+    "add" => "Add",
+
 ];

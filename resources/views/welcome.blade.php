@@ -853,13 +853,13 @@
             </div>
         @endif
 
-        @php
+        {{-- @php
           $mensaje="Alerta!! Alerta!!";
           $seleccion="#9b59b6";
         @endphp
 
         <x-dynamic-component :component="'todolist.todo-alerta'" :clase="'success-alert'" :$mensaje />
-        <x-todolist.todo-selectColor name="fondo" :$seleccion/>
+        <x-todolist.todo-selectColor name="fondo" :$seleccion/> --}}
     </div>
 
 </body>

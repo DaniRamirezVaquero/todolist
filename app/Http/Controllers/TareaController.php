@@ -16,6 +16,12 @@ class TareaController extends Controller
 
   public function create(Request $request)
   {
+      $request->validate([
+          'tarea' => 'required|string|max:40',
+          'fecha' => 'required|date|after:yesterday',
+          'etiqueta' => 'required'
+      ]);
+
       $tarea = new Tarea();
       $tarea->idUsu = auth()->id();
       $tarea->idEti = $request->input('etiqueta');

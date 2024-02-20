@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'auth.login');
 Route::get('/main', [UsuarioController::class, 'main'])->middleware('auth')->name('main');
 
 Route::middleware('auth')->group(function () {
@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-  Route::get('/task', [TareaController::class, 'new'])->name('task.new');
+  Route::get('/newTask', [TareaController::class, 'new'])->name('task.new');
   Route::post('/task', [TareaController::class, 'create'])->name('task.create');
 });
 
