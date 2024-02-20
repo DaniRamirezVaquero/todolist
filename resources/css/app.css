@@ -5,3 +5,27 @@
 .danger-alert {
   @apply p-3 mb-2 text-xs text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400;
 }
+
+.red{
+  @apply bg-red-500/30;
+}
+
+.cyan{
+  @apply bg-cyan-500/30;
+}
+
+.green{
+  @apply bg-green-500/30;
+}
+
+.blue{
+  @apply bg-blue-500/30;
+}
+
+.orange{
+  @apply bg-orange-500/30;
+}
+
+.pink{
+  @apply bg-pink-500/30;
+}

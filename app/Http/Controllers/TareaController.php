@@ -2,13 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etiqueta;
 use App\Models\Tarea;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
 {
 
-  
+  public function new()
+  {
+      return view('task.newTask', ['etiquetas' => Etiqueta::all()]);
+  }
+
+  public function create(Request $request)
+  {
+      $tarea = new Tarea();
+      $tarea->idUsu = auth()->id();
+      $tarea->idEti = $request->input('etiqueta');
+      $tarea->tarea = $request->input('tarea');
+      $tarea->completa = false;
+      $tarea->fecha = $request->input('fecha');
+      $tarea->save();
+
+      return redirect()->route('main');
+  }
 
 
   public function completar($id)

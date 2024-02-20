@@ -19,7 +19,7 @@ return new class extends Migration
             // Clave foránea que referencia a la etiqueta de la tarea
             $table->unsignedBigInteger('idEti')->nullable(); // Clave foránea, será de tipo bigInteger
 
-            $table->text('texto');
+            $table->string('tarea', 40);
             $table->boolean('completa')->default(false);
             $table->date('fecha');
 

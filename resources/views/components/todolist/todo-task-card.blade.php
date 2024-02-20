@@ -1,11 +1,13 @@
-<div class="bg-[{{ $tarea->etiqueta->color }}]/25 flex mb-4 items-center rounded p-3 px-6">
-  @includeWhen($tarea->completa, 'components.todolist.todo-tarea-completa', [
-      'id' => $tarea->id,
-  ])
-  @includeWhen(!$tarea->completa, 'components.todolist.todo-tarea-incompleta', [
-      'id' => $tarea->id,
-  ])
-  <li class="w-4/5 text-center">{{ $tarea->texto }}</li>
-  <li class="w-1/5 text-grey-darkest text-wrap text-center">
-      {{ $tarea->fecha->format('d/m/Y') }}</li>
+<div class="{{ $tarea->etiqueta->color }} flex mb-4 items-center rounded p-3 px-6">
+
+    <div class="w-3/5">{{ $tarea->tarea }}</div>
+    <div class="px-2 bg-white/25 rounded">#{{ $tarea->etiqueta->etiqueta }}</div>
+    <div class="w-2/5 text-grey-darkest text-center">{{ $tarea->fecha->format('d/m/Y') }}</div>
+
+    @includeWhen($tarea->completa, 'components.todolist.todo-tarea-completa', [
+        'id' => $tarea->id,
+    ])
+    @includeWhen(!$tarea->completa, 'components.todolist.todo-tarea-incompleta', [
+        'id' => $tarea->id,
+    ])
 </div>

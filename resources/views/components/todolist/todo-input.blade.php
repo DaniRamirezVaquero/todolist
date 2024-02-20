@@ -1,3 +1,3 @@
 <input
-    {{ $attributes->merge(['class' => 'rounded-md text-gray-800 bg-slate-200 text-sm']) }}
+    {{ $attributes->merge(['class' => 'rounded-md text-gray-200 bg-slate-700 text-sm']) }}
     value="{{ $valor }}" />

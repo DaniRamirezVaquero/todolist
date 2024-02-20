@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Todolist;
 
 use App\Models\Tarea;
 use Closure;
@@ -16,8 +16,10 @@ class TodoTaskCard extends Component
       $this->tarea = $tarea;
   }
 
+
+
   public function render()
   {
-      return view('components.todo-card');
+      return view('components.todolist.todo-task-card');
   }
 }
