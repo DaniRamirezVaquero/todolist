@@ -19,5 +19,6 @@ return [
     "add" => "Add",
     "yourTasks" => "Your tasks",
     "noTasks" => "You don't have tasks... Add one!",
-
+    "editTask" => "Edit task",
+    "save" => "Save",
 ];

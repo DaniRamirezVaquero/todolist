@@ -15,7 +15,7 @@ class Tarea extends Model
 
 	// Indicamos al modelos cuales son los atributos de asignación masiva
 	protected $fillable = [
-		'texto',
+		'tarea',
 		'fecha',
 		'idUsu'
 	];

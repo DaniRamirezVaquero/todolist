@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
-Route::view('/', 'auth.login');
+Route::view('/', 'auth.login')->middleware('guest');
 Route::get('/main', [UsuarioController::class, 'main'])->middleware('auth')->name('main');
 
 Route::middleware('auth')->group(function () {
@@ -26,6 +26,11 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/newTask', [TareaController::class, 'new'])->name('task.new');
   Route::post('/task', [TareaController::class, 'create'])->name('task.create');
+  Route::get('/task/check/{id}' , [TareaController::class, 'check'])->name('task.check');
+  Route::get('/task/uncheck/{id}' , [TareaController::class, 'uncheck'])->name('task.uncheck');
+  Route::delete('/task/{id}', [TareaController::class, 'delete'])->name('task.delete');
+  Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->name('task.edit');
+  Route::patch('/task/{id}', [TareaController::class, 'update'])->name('task.update');
 });
 
 require __DIR__ . '/auth.php';
