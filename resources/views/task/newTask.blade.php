@@ -10,32 +10,24 @@
                     {{-- Tarea --}}
                     <div>
                         <x-todolist.todo-input-label for="tarea">@lang('todolist.task')</x-todolist.todo-input-label>
-                        <x-todolist.todo-input type="text" class="w-full" id="tarea" name="tarea" required
-                            placeholder="¿Qué tiene que hacer?" :value="old('tarea')"></x-todolist.todo-input>
+                        <x-todolist.todo-input-dark type="text" class="w-full" id="tarea" name="tarea" required
+                            placeholder="¿Qué tiene que hacer?" :value="old('tarea')"></x-todolist.todo-input-dark>
                     </div>
 
                     <div>
                         {{-- Fecha --}}
                         <x-todolist.todo-input-label for="fecha">@lang('todolist.date')</x-todolist.todo-input-label>
-                        <x-todolist.todo-input type="date" class="w-full" id="fecha" required name="fecha"
-                            :value="old('fecha')"></x-todolist.todo-input>
+                        <x-todolist.todo-input-dark type="date" class="w-full" id="fecha" required name="fecha"
+                            :value="old('fecha')"></x-todolist.todo-input-dark>
                     </div>
 
                     <div>
-                        {{-- Etiqueta --}} <!-- TODO No se envia -->
+                        {{-- Etiqueta --}}
                         <x-todolist.todo-input-label for="etiqueta" required>@lang('todolist.tag')</x-todolist.todo-input-label>
-                        {{-- <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas/> --}}
-                        <select class="w-full rounded-md text-gray-200 bg-slate-700 text-sm" name="etiqueta" id="etiqueta"
-                            :value="old('etiqueta')">
-                            <option value="" class="bg-purple-500/30">@lang('todolist.none')</option>
-                            @foreach ($etiquetas as $etiqueta)
-                                <option value="{{ $etiqueta->idEti }}" class="{{ $etiqueta->color }}">
-                                    {{ $etiqueta->etiqueta }}</option>
-                            @endforeach
-                        </select>
+                        <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas/>
                     </div>
 
-                    <div class="flex justify-between">
+                    <div class="flex justify-between place-items-end">
                         <x-todolist.todo-alerta :$errors />
                         <x-todolist.todo-primary-button type="submit">@lang('todolist.add')</x-todolist.todo-primary-button>
                     </div>

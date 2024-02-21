@@ -11,31 +11,31 @@
 
             <!-- Name -->
             <div>
-                <x-todolist.todo-input id="nombre" class="block w-full" type="text" name="nombre" :value="old('name')"
+                <x-todolist.todo-input-light id="nombre" class="block w-full" type="text" name="nombre" :value="old('name')"
                     required autofocus autocomplete="name" placeholder="{{ __('Name') }}" />
             </div>
 
             <!-- LastName -->
             <div>
-                <x-todolist.todo-input id="apellido" class="block w-full" type="text" name="apellido" :value="old('apellido')"
+                <x-todolist.todo-input-light id="apellido" class="block w-full" type="text" name="apellido" :value="old('apellido')"
                     required autofocus autocomplete="family-name" placeholder="{{ __('Last name') }}" />
             </div>
 
             <!-- Email -->
             <div class="mt-4">
-                <x-todolist.todo-input class="w-60" type='email' name='email' :value="old('email')"
+                <x-todolist.todo-input-light class="w-60" type='email' name='email' :value="old('email')"
                     placeholder="{{ __('E-Mail Address') }}" autofocus required autocomplete="off" />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-todolist.todo-input class="w-60" type='password' name='password' placeholder="{{ __('Password') }}"
+                <x-todolist.todo-input-light class="w-60" type='password' name='password' placeholder="{{ __('Password') }}"
                     required autocomplete="current-password" />
             </div>
 
             <!-- Confirm Password -->
             <div>
-                <x-todolist.todo-input id="password_confirmation" class="block w-full" type="password"
+                <x-todolist.todo-input-light id="password_confirmation" class="block w-full" type="password"
                     name="password_confirmation" required autocomplete="new-password"
                     placeholder="{{ __('Confirm Password') }}" />
             </div>

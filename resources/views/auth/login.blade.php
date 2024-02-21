@@ -7,9 +7,9 @@
         <hr class="mb-6">
 
         <div class='grid gap-2'>
-            <x-todolist.todo-input class="w-60" type='email' name='email' :value="old('email')"
+            <x-todolist.todo-input-light class="w-60" type='email' name='email' :value="old('email')"
                 placeholder="{{ __('E-Mail Address') }}" autofocus required autocomplete="off" />
-            <x-todolist.todo-input class="w-60" type='password' name='password' placeholder="{{ __('Password') }}"
+            <x-todolist.todo-input-light class="w-60" type='password' name='password' placeholder="{{ __('Password') }}"
                 required autocomplete="current-password" />
             <x-todolist.todo-primary-button class="mt-2 justify-center">{{ __('Login') }}</x-todolist.todo-primary-button>
         </div>

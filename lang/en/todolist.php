@@ -17,5 +17,7 @@ return [
     "selectTags" => "Select a tag",
     "none" => "None",
     "add" => "Add",
+    "yourTasks" => "Your tasks",
+    "noTasks" => "You don't have tasks... Add one!",
 
 ];

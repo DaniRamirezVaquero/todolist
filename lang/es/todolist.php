@@ -17,4 +17,6 @@ return [
     "selectTags" => "Selecciona una etiqueta",
     "none" => "Ninguna",
     "add" => "Añadir",
+    "yourTasks" => "Tus tareas",
+    "noTasks" => "No tienes tareas... ¡Añade una!",
 ];

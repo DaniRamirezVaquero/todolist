@@ -16,10 +16,13 @@ class TareaController extends Controller
 
   public function create(Request $request)
   {
+
+      dd($request->all());
+
       $request->validate([
           'tarea' => 'required|string|max:40',
           'fecha' => 'required|date|after:yesterday',
-          'etiqueta' => 'required'
+          'etiqueta' => 'required|numeric|exists:etiqueta,idEti'
       ]);
 
       $tarea = new Tarea();

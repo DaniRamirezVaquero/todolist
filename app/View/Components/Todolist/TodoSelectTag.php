@@ -6,10 +6,9 @@ use App\Models\Etiqueta;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-
-class TodoTaskCard extends Component
+class TodoSelectTag extends Component
 {
-  public array $etiquetas;
+  public $etiquetas;
 
   public function __construct($etiquetas)
   {
