@@ -16,12 +16,11 @@ return new class extends Migration
             $table->id('idUsu');
             $table->string('nombre', 100);
             $table->string('apellido', 100);
-            $table->string('foto')->nullable();
 
             $table->string('email')->unique();
             $table->string('password');
 
-            $table->boolean('perfil')->default(false); // True - admin / False - usuario
+            $table->boolean('admin')->default(false); // True - admin / False - usuario
 
             $table->timestamps();
 

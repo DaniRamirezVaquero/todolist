@@ -30,7 +30,9 @@
 
                     <div class="flex justify-between place-items-end">
                         <x-todolist.todo-alerta :$errors />
-                        <x-todolist.todo-primary-button type="submit">@lang('todolist.save')</x-todolist.todo-primary-button>
+                        <x-todolist.todo-primary-button type="submit" class="border-2 border-green-500">
+                          @lang('todolist.save')
+                        </x-todolist.todo-primary-button>
                     </div>
             </form>
         </main>

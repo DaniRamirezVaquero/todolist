@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(EtiquetaTableSeeder::class);
+        $this->call(UsuarioTableSeeder::class);
 
         \App\Models\Usuario::factory(10)->create();
         \App\Models\Tarea::factory(5)->create();

@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'after_date' => 'El campo :attribute no debe anterior a :date.',
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
     'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',
@@ -130,9 +131,7 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+
     ],
 
     /*

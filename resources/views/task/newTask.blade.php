@@ -11,7 +11,7 @@
                     <div>
                         <x-todolist.todo-input-label for="tarea">@lang('todolist.task')</x-todolist.todo-input-label>
                         <x-todolist.todo-input-dark type="text" class="w-full" id="tarea" name="tarea" required
-                            placeholder="¿Qué tiene que hacer?" :value="old('tarea')"></x-todolist.todo-input-dark>
+                            placeholder="{{__('todolist.whattodo')}}" :value="old('tarea')"></x-todolist.todo-input-dark>
                     </div>
 
                     <div>
@@ -24,12 +24,14 @@
                     <div>
                         {{-- Etiqueta --}}
                         <x-todolist.todo-input-label for="etiqueta" required>@lang('todolist.tag')</x-todolist.todo-input-label>
-                        <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas/>
+                        <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas :selectedTag="-1"/>
                     </div>
 
                     <div class="flex justify-between place-items-end">
                         <x-todolist.todo-alerta :$errors />
-                        <x-todolist.todo-primary-button type="submit">@lang('todolist.add')</x-todolist.todo-primary-button>
+                        <x-todolist.todo-primary-button type="submit" class="border-2 border-green-500">
+                          @lang('todolist.add')
+                        </x-todolist.todo-primary-button>
                     </div>
             </form>
         </main>

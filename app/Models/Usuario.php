@@ -28,7 +28,6 @@ class Usuario extends Authenticatable
         'apellido',
         'password',
         'email',
-        'foto',
     ];
 
     /**
@@ -56,13 +55,8 @@ class Usuario extends Authenticatable
      */
     public function tareas()
     {
-        // Utilizamos el método hasMany() para indicar que un usuario puede tener varias tareas
-        // Este método recupera todas las tareas que pertenecen a un usuario en un objeto de tipo Relation
+
         return $this->hasMany(Tarea::class, 'idUsu');
 
-        // Si hemos usado la nomenclatura propia de laravel podemos hacerlo así:
-        // return $this->hasMany('App\Models\Tarea', 'idUsu');
-        // return $this->hasMany('App\Models\Tarea', 'idUsu', 'idUsu');
-        // return $this->hasMany(Tarea::class, 'idUsu', 'idUsu');
     }
 }

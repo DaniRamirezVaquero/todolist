@@ -13,12 +13,11 @@
                 required autocomplete="current-password" />
             <x-todolist.todo-primary-button class="mt-2 justify-center">{{ __('Login') }}</x-todolist.todo-primary-button>
         </div>
-
-        <x-todolist.todo-alerta :$errors />
-
-        <div class="flex justify-center mt-4">
-            <p class="text-xs text-gray-300"> {{ __('todolist.not_registed') }} </p>
-            <a href="{{ route('register') }}"
-                class="text-xs text-gray-200 hover:text-gray-100 ml-1 underline">{{ __('todolist.new_account') }}</a>
     </form>
+    <div><x-todolist.todo-alerta :$errors /></div>
+
+    <div class="flex justify-center mt-4">
+        <p class="text-xs text-gray-300"> {{ __('todolist.not_registed') }} </p>
+        <a href="{{ route('register') }}"
+            class="text-xs text-gray-200 hover:text-gray-100 ml-1 underline">{{ __('todolist.new_account') }}</a>
 @endsection

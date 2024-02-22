@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
   Route::delete('/task/{id}', [TareaController::class, 'delete'])->name('task.delete');
   Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->name('task.edit');
   Route::patch('/task/{id}', [TareaController::class, 'update'])->name('task.update');
+  Route::post('/task/search', [TareaController::class, 'search'])->name('task.search');
 });
 
 require __DIR__ . '/auth.php';

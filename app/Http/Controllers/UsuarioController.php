@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tarea;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,12 @@ class UsuarioController extends Controller
     // Recupero el usuario
     $usuario = Auth::user();
 
-    $tareas = $usuario->tareas->sortBy('fecha');
+    if ($usuario->admin) :
+      $tareas = Tarea::all();
+    else :
+      $tareas = $usuario->tareas->sortBy('fecha');
+    endif;
 
-    return view('usuario.main', ['tareas' => $tareas, 'usuario' => $usuario]);
+    return view('usuario.main', ['tareas' => $tareas, 'usuario' => $usuario, 'search' => '']);
   }
 }

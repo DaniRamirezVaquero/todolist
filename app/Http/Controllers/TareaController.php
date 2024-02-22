@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etiqueta;
 use App\Models\Tarea;
+use App\Rules\afterDate;
 use Illuminate\Http\Request;
 
 class TareaController extends Controller
@@ -17,13 +18,13 @@ class TareaController extends Controller
   public function create(Request $request)
   {
 
-    dd($request->all());
-
     $request->validate([
       'tarea' => 'required|string|max:40',
-      'fecha' => 'required|date|after:yesterday',
+      'fecha' => ['required', 'date', new afterDate],
       'etiqueta' => 'required|numeric|exists:etiqueta,idEti'
     ]);
+
+
 
     $tarea = new Tarea();
     $tarea->idUsu = auth()->id();
@@ -114,5 +115,16 @@ class TareaController extends Controller
     $tarea->save();
 
     return redirect()->route('main');
+  }
+
+  public function search(Request $request)
+  {
+    $request->validate([
+      'search' => 'required|string|max:40'
+    ]);
+
+    $tareas = Tarea::where('tarea', 'like', '%' . $request->input('search') . '%')->get();
+
+    return view('usuario.main', ['tareas' => $tareas, 'etiquetas' => Etiqueta::all(), 'usuario' => auth()->user(), 'search' => $request->input('search')]);
   }
 }
