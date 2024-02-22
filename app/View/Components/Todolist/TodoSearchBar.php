@@ -2,7 +2,10 @@
 
 namespace App\View\Components\Todolist;
 
+use App\Models\Etiqueta;
+use App\Models\Tarea;
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -14,6 +17,22 @@ class TodoSearchBar extends Component
     public function __construct()
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+      $request->validate([
+        'search' => 'required|string|max:40'
+      ]);
+
+      $tareas = Tarea::where('tarea', 'like', '%' . $request->input('search') . '%')
+      ->orWhereHas('etiqueta', function ($query) use ($request) {
+          $query->where('etiqueta', 'like', '%' . $request->input('search') . '%');
+      })
+      ->orWhere('completa', 'like', '%' . $request->input('search') . '%')
+      ->get();
+
+      return view('usuario.main', ['tareas' => $tareas, 'etiquetas' => Etiqueta::all(), 'usuario' => auth()->user(), 'search' => $request->input('search')]);
     }
 
     /**

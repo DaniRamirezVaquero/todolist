@@ -116,15 +116,4 @@ class TareaController extends Controller
 
     return redirect()->route('main');
   }
-
-  public function search(Request $request)
-  {
-    $request->validate([
-      'search' => 'required|string|max:40'
-    ]);
-
-    $tareas = Tarea::where('tarea', 'like', '%' . $request->input('search') . '%')->get();
-
-    return view('usuario.main', ['tareas' => $tareas, 'etiquetas' => Etiqueta::all(), 'usuario' => auth()->user(), 'search' => $request->input('search')]);
-  }
 }

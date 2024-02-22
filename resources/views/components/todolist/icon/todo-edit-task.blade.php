@@ -1,7 +1,7 @@
 @props(['tarea'])
 
 <a href="{{route('task.edit', ['id' => $tarea->idTar])}}">
-  <div {{ $attributes->merge(['class' => 'ease-in duration-300 w-9 h-9 rounded bg-blue-500 flex justify-center items-center border border-blue-500 hover:bg-blue-500/25']) }}>
+  <div {{ $attributes->merge(['class' => 'active:ring ease-in duration-100 w-9 h-9 rounded bg-blue-500 flex justify-center items-center border border-blue-500 hover:bg-blue-500/25']) }}>
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
     <path fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M18.4,21.8L32.1,8.1c2.3-2.3,6-2.1,8.1,0.4c1.8,2.2,1.5,5.5-0.5,7.5l-2.8,2.8" />

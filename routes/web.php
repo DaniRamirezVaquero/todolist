@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\View\Components\Todolist\TodoSearchBar;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
   Route::delete('/task/{id}', [TareaController::class, 'delete'])->name('task.delete');
   Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->name('task.edit');
   Route::patch('/task/{id}', [TareaController::class, 'update'])->name('task.update');
-  Route::post('/task/search', [TareaController::class, 'search'])->name('task.search');
+  Route::post('/task/search', [TodoSearchBar::class, 'search'])->name('task.search');
 });
 
 require __DIR__ . '/auth.php';

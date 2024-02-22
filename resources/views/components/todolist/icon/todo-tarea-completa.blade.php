@@ -1,5 +1,5 @@
 <a href="{{ route('task.uncheck', ['id' => $tarea->idTar]) }}">
-  <div {{ $attributes->merge(['class' => 'ease-in duration-300 w-9 h-9 rounded bg-green-500 flex justify-center items-center border border-green-500 hover:bg-green-500/25']) }}>
+  <div {{ $attributes->merge(['class' => 'active:ring ease-in duration-150 w-9 h-9 rounded bg-green-500 flex justify-center items-center border border-green-500 hover:bg-green-500/25']) }}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
           <path fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
               stroke-width="3"

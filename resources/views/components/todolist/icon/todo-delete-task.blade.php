@@ -6,7 +6,7 @@
 </form>
 
 <div
-    {{ $attributes->merge(['class' => 'ease-in duration-300 w-9 h-9 rounded bg-red-500 flex justify-center items-center border border-red-500 hover:bg-red-500/25', 'onclick' => 'event.preventDefault(); document.getElementById("delete-form").submit();']) }}>
+    {{ $attributes->merge(['class' => 'active:ring ease-in duration-150 w-9 h-9 rounded bg-red-500 flex justify-center items-center border border-red-500 hover:bg-red-500/25', 'onclick' => 'event.preventDefault(); document.getElementById("delete-form").submit();']) }}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
         <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="3"
             d="M19.5,11.5V10c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5v1.5" />

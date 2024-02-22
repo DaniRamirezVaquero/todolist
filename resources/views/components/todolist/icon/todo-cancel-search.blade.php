@@ -1,5 +1,5 @@
 <a href="{{ route('main') }}">
-    <div class="flex justify-center items-center rounded bg-red-500 p-2">
+    <div class="ease-in-out duration-150 flex justify-center items-center rounded bg-red-500 p-2 border border-red-500 hover:bg-red-500/25 active:ring">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
             <path fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
                 stroke-width="3"

@@ -21,7 +21,7 @@ return [
     "noTasks" => "You don't have tasks... Add one!",
     "editTask" => "Edit task",
     "save" => "Save",
-    "searchTask" => "Search by task, tag or date",
+    "searchTask" => "Search by task, tag, date or status",
     "search" => "Search",
     "whattodo" => "What to do?",
 ];

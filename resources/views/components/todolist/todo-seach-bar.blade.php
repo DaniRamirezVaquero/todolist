@@ -5,6 +5,7 @@
         @csrf
         <x-todolist.todo-input-dark type="text" name="search" class="w-full rounded p-2"
             placeholder="{{ __('todolist.searchTask') }}" value={{$oldSearch}}/>
+        <x-todolist.todo-toggle-btn/>
         <x-todolist.icon.todo-search />
         <x-todolist.icon.todo-cancel-search />
     </form>
