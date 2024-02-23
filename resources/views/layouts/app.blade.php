@@ -11,9 +11,7 @@
     <title>@lang('todolist.appname') @yield('cabecera')</title>
 
     <!--Styles-->
-    @viteReactRefresh
     @vite('resources/css/app.css')
-    @stack('scripts')
 
 </head>
 
@@ -21,6 +19,8 @@
     @section('main')
 
     @show
+
+    @livewireScripts
 </body>
 
 </html>

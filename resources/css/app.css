@@ -35,17 +35,7 @@
 }
 
 ul::-webkit-scrollbar {
-  width: 12px;
-
+  display: none;
 }
 
-ul::-webkit-scrollbar-track {
-  background: transparent;
-
-}
-
-ul::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 8px;
-}
 
