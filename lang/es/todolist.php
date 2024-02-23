@@ -21,7 +21,7 @@ return [
     "noTasks" => "No tienes tareas... ¡Añade una!",
     "editTask" => "Editar tarea",
     "save" => "Guardar",
-    "searchTask" => "Busca por tarea, etiqueta, fecha o el estado",
+    "searchTask" => "Busca por tarea o etiqueta",
     "search" => "Buscar",
     "whattodo" => "¿Qué tienes que hacer?",
 ];

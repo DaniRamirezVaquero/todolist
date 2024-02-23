@@ -7,7 +7,7 @@
             <p class="mt-0 mb-3 w-full text-right font-mono">@lang('Hello') {{ $usuario->nombre }}!</p>
 
             <x-todolist.todo-search-bar class="mb-4" :oldSearch=$search/>
-            <ul class="max-h-[675px] overflow-y-scroll pr-3">
+            <ul class="max-h-[675px] overflow-y-scroll">
                 @forelse ($tareas as $tarea)
                     <x-todolist.todo-task-card :$tarea />
                 @empty

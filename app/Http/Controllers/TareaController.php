@@ -90,6 +90,10 @@ class TareaController extends Controller
    */
   public function edit($id)
   {
+    if (Tarea::find($id)->idUsu != auth()->id()) {
+      return redirect()->route('main');
+    }
+
     return view('task.editTask', ['tarea' => Tarea::find($id), 'etiquetas' => Etiqueta::all()]);
   }
 
@@ -102,9 +106,13 @@ class TareaController extends Controller
    */
   public function update(Request $request, $id)
   {
+    if (Tarea::find($id)->idUsu != auth()->id()) {
+      return redirect()->route('main');
+    }
+
     $request->validate([
       'tarea' => 'required|string|max:40',
-      'fecha' => 'required|date|after:yesterday',
+      'fecha' => ['required', 'date', new afterDate],
       'etiqueta' => 'required|numeric|exists:etiqueta,idEti'
     ]);
 
