@@ -11,7 +11,7 @@
 
             <!-- Name -->
             <div>
-                <x-todolist.todo-input-light id="nombre" class="block w-full" type="text" name="nombre" :value="old('name')"
+                <x-todolist.todo-input-light id="nombre" class="block w-full" type="text" name="nombre" :value="old('nombre')"
                     required autofocus autocomplete="name" placeholder="{{ __('Name') }}" />
             </div>
 

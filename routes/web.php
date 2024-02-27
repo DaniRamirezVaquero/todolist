@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\View\Components\Todolist\TodoConfig;
 use App\View\Components\Todolist\TodoSearchBar;
+use App\View\Components\Todolist\TodoSelectLang;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,18 +25,28 @@ Route::view('/', 'auth.login')->middleware('guest');
 Route::get('/main', [UsuarioController::class, 'main'])->middleware('auth')->name('main');
 
 Route::middleware('auth')->group(function () {
-  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  Route::delete('/usuario/delete/{id}', [UsuarioController::class, 'delete'])->name('usuario.delete');
 
   Route::get('/newTask', [TareaController::class, 'new'])->name('task.new');
+
   Route::post('/task', [TareaController::class, 'create'])->name('task.create');
   Route::get('/task/check/{id}' , [TareaController::class, 'check'])->name('task.check');
   Route::get('/task/uncheck/{id}' , [TareaController::class, 'uncheck'])->name('task.uncheck');
-  Route::delete('/task/{id}', [TareaController::class, 'delete'])->name('task.delete');
+  Route::delete('/task/delete/{id}', [TareaController::class, 'delete'])->name('task.delete');
   Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->name('task.edit');
   Route::patch('/task/{id}', [TareaController::class, 'update'])->name('task.update');
-  Route::post('/task/search', [TodoSearchBar::class, 'search'])->name('task.search');
+
+  Route::post('/main', [TodoSearchBar::class, 'search'])->name('task.search');
+
+  Route::view('/config', 'usuario.config')->name('config');
+  Route::get('/config/lang/{lang}', [TodoSelectLang::class, 'setLanguage'])->name('config.lang');
+
+  Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+  })->name('logout');
+
+
 });
 
 require __DIR__ . '/auth.php';

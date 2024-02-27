@@ -18,7 +18,6 @@
         <div class="absolute bottom-0 right-0 mb-10 mr-16 flex flex-col gap-6">
             <x-todolist.todo-new-task-btn />
             <x-todolist.todo-config-btn />
-            <x-todolist.todo-logout-btn />
         </div>
     </div>
 @endsection

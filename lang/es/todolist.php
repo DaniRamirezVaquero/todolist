@@ -24,4 +24,5 @@ return [
     "searchTask" => "Busca por tarea o etiqueta",
     "search" => "Buscar",
     "whattodo" => "¿Qué tienes que hacer?",
+    "test" => "Prueba",
 ];

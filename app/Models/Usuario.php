@@ -59,4 +59,5 @@ class Usuario extends Authenticatable
         return $this->hasMany(Tarea::class, 'idUsu');
 
     }
-}
+
+  }

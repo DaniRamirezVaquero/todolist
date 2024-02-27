@@ -24,4 +24,5 @@ return [
     "searchTask" => "Search by task or tag",
     "search" => "Search",
     "whattodo" => "What to do?",
+    "test" => "Test",
 ];

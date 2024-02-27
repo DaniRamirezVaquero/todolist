@@ -3,8 +3,6 @@
 namespace App\View\Components\Todolist;
 
 use App\Models\Tarea;
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class TodoTaskCard extends Component
@@ -15,8 +13,6 @@ class TodoTaskCard extends Component
   {
       $this->tarea = $tarea;
   }
-
-
 
   public function render()
   {

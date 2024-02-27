@@ -24,7 +24,7 @@
                     <div>
                         {{-- Etiqueta --}}
                         <x-todolist.todo-input-label for="etiqueta" required>@lang('todolist.tag')</x-todolist.todo-input-label>
-                        <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas :selectedTag="-1"/>
+                        <x-todolist.todo-select-tag name="etiqueta" id="etiqueta" :$etiquetas :selectedTag="-1" :value="old('etiqueta')"/>
                     </div>
 
                     <div class="flex justify-between place-items-end">
@@ -38,7 +38,6 @@
         <div class="absolute bottom-0 right-0 mb-10 mr-16 flex flex-col gap-6">
             <x-todolist.todo-cancel-btn />
             <x-todolist.todo-config-btn />
-            <x-todolist.todo-logout-btn />
         </div>
     </div>
 @endsection

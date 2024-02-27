@@ -13,7 +13,7 @@ use Illuminate\View\Component;
 class TodoSearchBar extends Component
 {
 
-  public $state;
+  public $state = false;
   /**
    * Create a new component instance.
    */
