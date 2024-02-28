@@ -36,7 +36,7 @@
                     </div>
             </form>
         </main>
-        <div class="absolute bottom-0 right-0 mb-10 mr-16 flex flex-col gap-6">
+        <div class="absolute bottom-0 right-0 mb-16 mr-16 flex flex-col gap-6">
             <x-todolist.todo-cancel-btn />
             <x-todolist.todo-config-btn />
         </div>

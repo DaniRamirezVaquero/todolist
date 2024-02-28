@@ -1,5 +1,5 @@
 <div
-    {{ $attributes->merge(['class' => 'w-14 h-14 bg-gray-700 rounded-full shadow flex justify-center items-center pb-1']) }}>
+    {{ $attributes->merge(['class' => 'w-14 h-14 bg-gray-700 rounded-full shadow flex justify-center items-center pb-1 ring-0 ring-transparent hover:ring-cyan-500 hover:ring ease-in-out duration-300']) }}>
     <a href="{{ route('main') }}" class="flex items-center justify-center w-full h-full">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38px" height="38px">
             <path fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"

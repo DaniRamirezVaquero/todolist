@@ -31,10 +31,9 @@ class UsuarioController extends Controller
   /**
    * Elimina el usuario
    */
-  public function delete(int $id)
+  public function delete()
   {
-
-    $usuario = Usuario::find($id);
+    $usuario = Usuario::find(Auth::id());
     $usuario->delete();
     return redirect('/');
   }

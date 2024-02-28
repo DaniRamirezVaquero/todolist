@@ -20,27 +20,27 @@ class EtiquetaTableSeeder extends Seeder
 
     DB::table('etiqueta')->insert([
       [
-        'etiqueta' => 'Estudios',
+        'etiqueta' => 'Estudios 📚',
         'color' => 'cyan',
       ],
       [
-        'etiqueta' => 'Trabajo',
+        'etiqueta' => 'Trabajo 🧑🏻‍💻',
         'color' => 'orange',
       ],
       [
-        'etiqueta' => 'Personal',
+        'etiqueta' => 'Personal 🏠',
         'color' => 'blue',
       ],
       [
-        'etiqueta' => 'Ocio',
+        'etiqueta' => 'Ocio 🎮',
         'color' => 'pink',
       ],
       [
-        'etiqueta' => 'Salud',
+        'etiqueta' => 'Salud 💊',
         'color' => 'green',
       ],
       [
-        'etiqueta' => 'Importante',
+        'etiqueta' => 'Importante 🚨',
         'color' => 'red',
       ]
     ]);

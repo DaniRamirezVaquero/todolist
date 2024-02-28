@@ -124,4 +124,16 @@ class TareaController extends Controller
 
     return redirect()->route('main');
   }
+
+  /**
+   * Elimina todas las tareas
+   *
+   * @return void
+   */
+  public function deleteAll()
+  {
+    Tarea::where('idUsu', auth()->id())->delete();
+
+    return redirect()->route('main');
+  }
 }

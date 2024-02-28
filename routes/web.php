@@ -25,7 +25,7 @@ Route::view('/', 'auth.login')->middleware('guest');
 Route::get('/main', [UsuarioController::class, 'main'])->middleware('auth')->name('main');
 
 Route::middleware('auth')->group(function () {
-  Route::delete('/usuario/delete/{id}', [UsuarioController::class, 'delete'])->name('usuario.delete');
+  Route::delete('/usuario/delete', [UsuarioController::class, 'delete'])->name('usuario.delete');
 
   Route::get('/newTask', [TareaController::class, 'new'])->name('task.new');
 
@@ -46,7 +46,9 @@ Route::middleware('auth')->group(function () {
     return redirect('/');
   })->name('logout');
 
+  Route::delete('/tareas/deleteAll', [TareaController::class, 'deleteAll'])->name('tareas.deleteAll');
 
+  Route::view('/calendar', 'usuario.calendar')->name('calendar');
 });
 
 require __DIR__ . '/auth.php';
