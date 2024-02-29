@@ -11,27 +11,38 @@ use Illuminate\View\Component;
 class TodoCalendar extends Component
 {
   public $tareas;
+  public $currentMonth;
 
   public function __construct()
   {
       $usuario = Auth::user();
-      $this->tareas = $usuario->tareas->where('completed', false)->map(function ($task) {
+      $this->tareas = $usuario->tareas->where('completa', false)->map(function ($task) {
           $task->fecha = Carbon::parse($task->fecha)->format('Y-m-d');
           return $task;
       });
+      $this->currentMonth = Carbon::now()->format('Y-m');
   }
 
   public function render(): View|Closure|string
   {
-    $currentMonth = Carbon::now()->format('Y-m');
-    $daysInMonth = Carbon::parse($currentMonth)->daysInMonth;
-    $firstDayOfMonth = Carbon::parse($currentMonth)->firstOfMonth()->dayOfWeekIso;
+    $daysInMonth = Carbon::parse($this->currentMonth)->daysInMonth;
+    $firstDayOfMonth = Carbon::parse($this->currentMonth)->firstOfMonth()->dayOfWeekIso;
 
     return view('components.todolist.todo-calendar', [
-      'currentMonth' => $currentMonth,
+      'currentMonth' => $this->currentMonth,
       'daysInMonth' => $daysInMonth,
       'firstDayOfMonth' => $firstDayOfMonth,
       'tasks' => $this->tareas,
     ]);
+  }
+
+  public function nextMonth()
+  {
+    $this->currentMonth = Carbon::parse($this->currentMonth)->addMonth()->format('Y-m');
+  }
+
+  public function previousMonth()
+  {
+    $this->currentMonth = Carbon::parse($this->currentMonth)->subMonth()->format('Y-m');
   }
 }
