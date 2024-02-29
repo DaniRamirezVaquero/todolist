@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Etiqueta;
 use App\Models\Tarea;
 use App\Rules\afterDate;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TareaController extends Controller
 {
@@ -23,8 +25,6 @@ class TareaController extends Controller
       'fecha' => ['required', 'date', new afterDate],
       'etiqueta' => 'required|numeric|exists:etiqueta,idEti'
     ]);
-
-
 
     $tarea = new Tarea();
     $tarea->idUsu = auth()->id();
@@ -49,7 +49,7 @@ class TareaController extends Controller
     $tarea->completa = true;
     $tarea->save();
 
-    return redirect()->route('main');
+    return redirect()->back();
   }
 
   /**
@@ -64,7 +64,7 @@ class TareaController extends Controller
     $tarea->completa = false;
     $tarea->save();
 
-    return redirect()->route('main');
+    return redirect()->back();
   }
 
   /**
@@ -79,7 +79,7 @@ class TareaController extends Controller
     $tarea = Tarea::find($id);
     $tarea->delete();
 
-    return redirect()->route('main');
+    return redirect()->back();
   }
 
   /**
@@ -93,6 +93,9 @@ class TareaController extends Controller
     if (Tarea::find($id)->idUsu != auth()->id()) {
       return redirect()->route('main');
     }
+
+    // Guarda la URL de la página anterior en la sesión
+    session(['previous_url' => url()->previous()]);
 
     return view('task.editTask', ['tarea' => Tarea::find($id), 'etiquetas' => Etiqueta::all()]);
   }
@@ -122,7 +125,8 @@ class TareaController extends Controller
     $tarea->fecha = $request->input('fecha');
     $tarea->save();
 
-    return redirect()->route('main');
+    // Redirige a la URL almacenada en la sesión
+    return redirect(session('previous_url'));
   }
 
   /**
@@ -135,5 +139,20 @@ class TareaController extends Controller
     Tarea::where('idUsu', auth()->id())->delete();
 
     return redirect()->route('main');
+  }
+
+  /**
+   * Obtiene las tareas de un día concreto
+   *
+   * @param [type] $date
+   * @return void
+   */
+  public function getTasksByDay($date)
+  {
+    $usuario = Auth::user();
+    $tareas = Tarea::where('idUsu', auth()->id())->where('fecha', $date)->get();
+    $date = Carbon::parse($date)->format('d/m/Y');
+
+    return view('usuario.main', ['tareas' => $tareas, 'usuario' => $usuario, 'search' => $date]);
   }
 }
