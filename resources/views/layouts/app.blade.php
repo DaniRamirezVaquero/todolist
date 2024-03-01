@@ -11,7 +11,10 @@
     <title>@lang('todolist.appname') @yield('cabecera')</title>
 
     <!--Styles-->
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" href="{{asset('build/assets/app-GGaQrYaU.css')}}">
+
+
 
 </head>
 
