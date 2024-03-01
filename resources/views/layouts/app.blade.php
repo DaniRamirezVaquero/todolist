@@ -12,7 +12,7 @@
 
     <!--Styles-->
     {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" href="{{asset('build/assets/app-GGaQrYaU.css')}}">
+    <link rel="stylesheet" href="{{asset('build/assets/app-_23Cg8WV.css')}}">
 
 
 

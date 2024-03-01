@@ -1,4 +1,4 @@
-<div class="p-1 border rounded-r-lg border-slate-400 flex items-center justify-center hover:bg-gray-900">
+<div class="p-1 border rounded-r-lg border-white/50 flex items-center justify-center hover:bg-blue-500/25 bg-blue-500/50">
 <a href="{{route('calendar.nextMonth')}}">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35">
           <path fill="#FEFEFE" transform="scale(0.364583 0.364583)"
