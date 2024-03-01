@@ -1,9 +1,9 @@
 @extends('layouts.app')
-<!-- TODO: langs -->
+
 @section('main')
 <div class="relative min-h-screen w-screen flex flex-col items-center">
   <main class="bg-gray-800 rounded p-6 w-fit text-zinc-100 mt-14 shadow-lg flex flex-col">
-      <h1 class="my-0 text-xl">@lang('todolist.calendar')</h1>
+      <h1 class="my-0 text-xl">@lang('calendar.calendar')</h1>
       <x-todolist.todo-calendar/>
 
   </main>

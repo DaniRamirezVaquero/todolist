@@ -1,19 +1,21 @@
-<div class="grid grid-cols-3 place-self-end w-36">
-  <x-todolist.icon.todo-prev/>
-  <div></div>
-  <x-todolist.icon.todo-next/>
+<div class="grid grid-cols-3 place-self-end">
+    <x-todolist.icon.todo-prev-month />
+    <div
+        class="py-1 px-2 border-slate-400 border-y font-mono font-bold uppercase flex items-center justify-center text-xl">
+        @lang('calendar.' . Carbon\Carbon::parse($currentMonth)->format('M'))</div>
+    <x-todolist.icon.todo-next-month />
 </div>
 
-<table class="w-full mt-8 ">
+<table class="w-full mt-6">
     <thead>
         <tr class="px-4 py-2 text-left bg-emerald-500/25 rounded-t">
-            <th class="border-slate-500 border-r border-b rounded-tl px-4 py-2 text-left">Mon</th>
-            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">Tue</th>
-            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">Wed</th>
-            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">Thu</th>
-            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">Fri</th>
-            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">Sat</th>
-            <th class="border-slate-500 border-b rounded-tr px-4 py-3 text-left">Sun</th>
+            <th class="border-slate-500 border-r border-b rounded-tl px-4 py-2 text-left">@lang('calendar.mon')</th>
+            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">@lang('calendar.tue')</th>
+            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">@lang('calendar.wed')</th>
+            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">@lang('calendar.thu')</th>
+            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">@lang('calendar.fri')</th>
+            <th class="border-slate-500 border-r border-b px-4 py-3 text-left">@lang('calendar.sat')</th>
+            <th class="border-slate-500 border-b rounded-tr px-4 py-3 text-left">@lang('calendar.sun')</th>
         </tr>
     </thead>
     <tbody>
@@ -47,10 +49,10 @@
                     @endphp
                     <td
                         class="border-slate-500 {{ $j < 6 ? 'border-r' : '' }} {{ $i < 4 ? 'border-b' : '' }}
-                            p-2 max-w-36 max-h-32 min-w-36 h-32">
+                            p-2 max-w-36 max-h-32 min-w-36 h-32 hover:bg-emerald-500/25 ease-in-out duration-200">
                         <a href="{{ route('tasks.day', ['date' => $dateString]) }}">
                             <div class="relative flex flex-col items-end w-full h-full gap-2">
-                                @if ($day == Carbon::now()->format('d'))
+                                @if (Carbon::parse($dateString)->format('Y-m-d') == Carbon::now()->format('Y-m-d'))
                                     <div class="font-semibold bg-gray-300 text-slate-800 rounded px-0.5">
                                         {{ $day }}</div>
                                     <div class="mt-auto w-full flex flex-wrap justify-start gap-1">
@@ -99,7 +101,7 @@
                         @endphp
                         <td
                             class="border-slate-500 {{ $j < 6 ? 'border-r' : '' }} {{ $i < 4 ? 'border-b' : '' }}
-                            p-2 max-w-36 max-h-32 w-36 h-32">
+                            p-2 max-w-36 max-h-32 w-36 h-32 hover:bg-emerald-500/15 ease-in-out duration-200">
                             <a href="{{ route('tasks.day', ['date' => $dateString]) }}">
                                 <div class="relative flex flex-col items-end w-full h-full gap-2">
                                     <div
@@ -131,7 +133,7 @@
                         {{-- Cell for the next month --}}
                         <td
                             class="border-slate-500 {{ $j < 6 ? 'border-r' : '' }} {{ $i < 4 ? 'border-b' : '' }}
-                            p-2 max-w-36 max-h-32 min-w-36 h-32">
+                            p-2 max-w-36 max-h-32 min-w-36 h-32 hover:bg-emerald-500/15 ease-in-out duration-200">
                             <a href="{{ route('tasks.day', ['date' => $dateString]) }}">
                                 <div class="relative flex flex-col items-end w-full h-full gap-2">
                                     <div

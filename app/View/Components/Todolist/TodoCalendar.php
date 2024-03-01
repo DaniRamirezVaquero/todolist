@@ -15,12 +15,17 @@ class TodoCalendar extends Component
 
   public function __construct()
   {
-      $usuario = Auth::user();
-      $this->tareas = $usuario->tareas->where('completa', false)->map(function ($task) {
-          $task->fecha = Carbon::parse($task->fecha)->format('Y-m-d');
-          return $task;
-      });
-      $this->currentMonth = Carbon::now()->format('Y-m');
+    $usuario = Auth::user();
+    $this->tareas = $usuario->tareas->where('completa', false)->map(function ($task) {
+      $task->fecha = Carbon::parse($task->fecha)->format('Y-m-d');
+      return $task;
+    });
+
+    if (!session()->has('currentMonth')) {
+      session(['currentMonth' => Carbon::now()->format('Y-m')]);
+    }
+
+    $this->currentMonth = session('currentMonth');
   }
 
   public function render(): View|Closure|string
@@ -38,11 +43,17 @@ class TodoCalendar extends Component
 
   public function nextMonth()
   {
-    $this->currentMonth = Carbon::parse($this->currentMonth)->addMonth()->format('Y-m');
+    $nextMonth = Carbon::parse($this->currentMonth)->addMonth()->format('Y-m');
+    session(['currentMonth' => $nextMonth]);
+
+    return redirect()->route('calendar');
   }
 
   public function previousMonth()
   {
-    $this->currentMonth = Carbon::parse($this->currentMonth)->subMonth()->format('Y-m');
+    $previousMonth = Carbon::parse($this->currentMonth)->subMonth()->format('Y-m');
+    session(['currentMonth' => $previousMonth]);
+
+    return redirect()->route('calendar');
   }
 }

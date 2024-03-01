@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\View\Components\Todolist\TodoCalendar;
 use App\View\Components\Todolist\TodoConfig;
 use App\View\Components\Todolist\TodoSearchBar;
 use App\View\Components\Todolist\TodoSelectLang;
@@ -50,6 +51,9 @@ Route::middleware('auth')->group(function () {
   Route::delete('/tareas/deleteAll', [TareaController::class, 'deleteAll'])->name('tareas.deleteAll');
 
   Route::view('/calendar', 'usuario.calendar')->name('calendar');
+
+  Route::get('/calentar/nextMonth', [TodoCalendar::class, 'nextMonth'])->name('calendar.nextMonth');
+  Route::get('/calentar/previousMonth', [TodoCalendar::class, 'previousMonth'])->name('calendar.previousMonth');
 });
 
 require __DIR__ . '/auth.php';
