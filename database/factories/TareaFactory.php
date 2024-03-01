@@ -22,7 +22,7 @@ class TareaFactory extends Factory
             'idEti' => $this->faker->numberBetween(1, 6),
             'tarea' => $this->faker->words(3, true) ,
             'completa' => $this->faker->boolean() ,
-            'fecha' => $this->faker->dateTimeBetween('2024-01-01', '2024-12-31')->format('Y-m-d'),
+            'fecha' => $this->faker->dateTimeBetween('2024-02-01', '2024-6-31')->format('Y-m-d'),
         ];
     }
 }
