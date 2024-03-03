@@ -16,6 +16,7 @@ class CheckIsAdmin
    */
   public function handle(Request $request, Closure $next): Response
   {
+    // If the user is logged in and is an admin, let them through
     if (Auth::check() && Auth::user()->admin) {
       return $next($request);
     }

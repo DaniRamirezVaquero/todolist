@@ -21,6 +21,7 @@ class CheckTaskOwner
 
     $task = Tarea::find($id);
 
+    // If the user is logged in and is an admin or the owner of the task, let them through
     if (Auth::check() && (Auth::user()->admin || Auth::user()->idUsu == $task->idUsu)) {
       return $next($request);
     }

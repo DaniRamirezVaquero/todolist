@@ -6,20 +6,33 @@ use App\Models\Etiqueta;
 use App\Models\Tarea;
 use App\Rules\afterDate;
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class TareaController extends Controller
 {
 
-  public function new()
+  /**
+   * Show the form for creating a new task.
+   *
+   * @return View
+   */
+  public function new(): View
   {
     return view('task.newTask', ['etiquetas' => Etiqueta::all()]);
   }
 
-  public function create(Request $request)
+  /**
+   * Create a new task
+   *
+   * @param Request $request
+   * @return void
+   */
+  public function create(Request $request): RedirectResponse
   {
-
     $request->validate([
       'tarea' => 'required|string|max:40',
       'fecha' => ['required', 'date', new afterDate],
@@ -38,12 +51,12 @@ class TareaController extends Controller
   }
 
   /**
-   * Marca una tarea como completada
+   * Marks a task as completed
    *
-   * @param [int] $id
-   * @return void
+   * @param int $id
+   * @return RedirectResponse
    */
-  public function check($id)
+  public function check($id): RedirectResponse
   {
     $tarea = Tarea::find($id);
     $tarea->completa = true;
@@ -53,12 +66,12 @@ class TareaController extends Controller
   }
 
   /**
-   * Marca una tarea como no completada
+   * Marks a task as not completed
    *
-   * @param [int] $id
-   * @return void
+   * @param int $id
+   * @return RedirectResponse
    */
-  public function uncheck($id)
+  public function uncheck($id): RedirectResponse
   {
     $tarea = Tarea::find($id);
     $tarea->completa = false;
@@ -68,12 +81,12 @@ class TareaController extends Controller
   }
 
   /**
-   * Elimina una tarea
+   * Deletes a task
    *
-   * @param [int] $id
-   * @return void
+   * @param int $id
+   * @return RedirectResponse
    */
-  public function delete($id)
+  public function delete($id): RedirectResponse
   {
 
     $tarea = Tarea::find($id);
@@ -83,12 +96,12 @@ class TareaController extends Controller
   }
 
   /**
-   * Muestra el formulario de edición de una tarea
+   * Show the form for editing a task
    *
-   * @param [type] $id
-   * @return void
+   * @param [int $id
+   * @return View
    */
-  public function edit($id)
+  public function edit($id): View
   {
     // Guarda la URL de la página anterior en la sesión
     session(['previous_url' => url()->previous()]);
@@ -97,13 +110,13 @@ class TareaController extends Controller
   }
 
   /**
-   * Actualiza una tarea
+   * Update a task
    *
    * @param Request $request
-   * @param [type] $id
-   * @return void
+   * @param int $id
+   * @return RedirectResponse
    */
-  public function update(Request $request, $id)
+  public function update(Request $request, $id): RedirectResponse
   {
     $request->validate([
       'tarea' => 'required|string|max:40',
@@ -122,11 +135,11 @@ class TareaController extends Controller
   }
 
   /**
-   * Elimina todas las tareas
+   * Deletes all tasks
    *
-   * @return void
+   * @return RedirectResponse
    */
-  public function deleteAll()
+  public function deleteAll(): RedirectResponse
   {
     Tarea::where('idUsu', auth()->id())->delete();
 
@@ -134,12 +147,12 @@ class TareaController extends Controller
   }
 
   /**
-   * Obtiene las tareas de un día concreto
+   * Deletes all completed tasks
    *
-   * @param [type] $date
-   * @return void
+   * @param string $date
+   * @return View
    */
-  public function getTasksByDay($date)
+  public function getTasksByDay($date): View
   {
     $usuario = Auth::user();
     $tareas = Tarea::where('idUsu', auth()->id())->where('fecha', $date)->get();
