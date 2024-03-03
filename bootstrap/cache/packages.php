@@ -80,6 +80,13 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'sarfraznawaz2005/loading' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Sarfraznawaz2005\\Loading\\ServiceProvider',
+    ),
+  ),
   'spatie/laravel-ignition' => 
   array (
     'providers' => 

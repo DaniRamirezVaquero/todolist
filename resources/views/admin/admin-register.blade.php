@@ -1,9 +1,9 @@
 @extends('layouts.login_register')
 
 @section('form')
-    <form action="{{ route('register') }}" method="post" class="flex flex-col justify-center">
+    <form action="{{ route('admin.register.post') }}" method="post" class="flex flex-col justify-center">
         @csrf
-        <span class="mb-1.5 mt-6 text-2xl font-sans font-bold text-gray-900 text-center"> {{ __('todolist.new_account') }}
+        <span class="mb-1.5 mt-6 text-2xl font-sans font-bold text-gray-900 text-center"> {{ __('admin.register') }}
         </span>
         <hr class="mb-6">
 
@@ -46,10 +46,4 @@
     </form>
 
     <x-todolist.todo-alerta :$errors />
-
-    <div class="flex justify-center mt-4 w-full">
-        <p class="text-xs text-gray-300"> {{ __('todolist.registed') }} </p>
-        <a href="{{ route('login') }}"
-            class="text-xs text-gray-200 hover:text-gray-100 ml-1 underline">{{ __('Login') }}</a>
-    </div>
     @endsection

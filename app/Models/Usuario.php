@@ -48,6 +48,17 @@ class Usuario extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * Al borrar un usuario, se borran sus tareas
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::deleting(function ($user) {
+            $user->tareas()->delete();
+        });
+    }
 
     /**
      * Devuelve las tareas de un usuario

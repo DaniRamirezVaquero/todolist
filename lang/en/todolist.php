@@ -13,6 +13,7 @@ return [
     "tags" => "Tags",
     "tag" => "Tag",
     "task" => "Task",
+    "tasks" => "Tasks",
     "date" => "Date",
     "selectTags" => "Select a tag",
     "none" => "None",

@@ -20,4 +20,5 @@
         <p class="text-xs text-gray-300"> {{ __('todolist.not_registed') }} </p>
         <a href="{{ route('register') }}"
             class="text-xs text-gray-200 hover:text-gray-100 ml-1 underline">{{ __('todolist.new_account') }}</a>
+    </div>
 @endsection

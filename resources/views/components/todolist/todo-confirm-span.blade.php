@@ -11,7 +11,7 @@
             <x-todolist.todo-primary-button
                 id="{{ $id }}-cancel">@lang('todolist.cancel')</x-todolist.todo-primary-button>
 
-            <form action="{{ route($route) }}" method="POST">
+            <form action="{{ $route }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <x-todolist.todo-primary-button

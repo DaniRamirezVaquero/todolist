@@ -1,4 +1,4 @@
-<div class="{{ $tarea->etiqueta->color }} xl:flex mb-4 items-center rounded p-3 px-6 grid grid-cols-2">
+<div class="{{ $tarea->etiqueta->color }} xl:flex items-center rounded p-3 px-6 grid grid-cols-2">
 
     @if (Auth::user()->admin)
         <div class="mr-2 font-bold font-mono">Usuario: {{ $tarea->usuario->nombre }}</div>

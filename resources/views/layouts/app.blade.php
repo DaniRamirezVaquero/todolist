@@ -8,13 +8,11 @@
     <meta name="author" content="Daniel RV">
     <meta name="description" content="Aplicacion de gestion de tareas">
 
-    <title>@lang('todolist.appname') @yield('cabecera')</title>
+    <title>@lang('todolist.appname')</title>
 
     <!--Styles-->
     {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" href="{{asset('build/assets/app-_23Cg8WV.css')}}">
-
-
+    <link rel="stylesheet" href="{{asset('build/assets/app-PwlONAC_.css')}}">
 
 </head>
 
@@ -25,5 +23,6 @@
 
     @livewireScripts
 </body>
+
 
 </html>

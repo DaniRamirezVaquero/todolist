@@ -13,6 +13,7 @@ return [
     "tags" => "Etiquetas",
     "tag" => "Etiqueta",
     "task" => "Tarea",
+    "tasks" => "Tareas",
     "date" => "Fecha",
     "selectTags" => "Selecciona una etiqueta",
     "none" => "Ninguna",

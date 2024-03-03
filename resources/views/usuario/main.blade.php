@@ -7,13 +7,13 @@
             <p class="mt-0 mb-3 w-full text-right font-mono">@lang('Hello') {{ $usuario->nombre }}!</p>
 
             <x-todolist.todo-search-bar class="mb-4" :oldSearch=$search/>
-            <ul class="max-h-[675px] overflow-y-scroll">
+            <div class="no-scrollbar max-h-[675px] overflow-y-scroll flex flex-col gap-4 rounded">
                 @forelse ($tareas as $tarea)
                     <x-todolist.todo-task-card :$tarea />
                 @empty
-                    <li>@lang('todolist.noTasks')</li>
+                    <p>@lang('todolist.noTasks')</p>
                 @endforelse
-            </ul>
+            </div>
         </main>
         <div class="absolute bottom-0 right-0 mb-16 mr-16 flex flex-col gap-6">
             <x-todolist.todo-new-task-btn />

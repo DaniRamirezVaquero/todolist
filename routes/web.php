@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TareaController;
@@ -31,11 +32,12 @@ Route::middleware('auth')->group(function () {
   Route::get('/newTask', [TareaController::class, 'new'])->name('task.new');
 
   Route::post('/task', [TareaController::class, 'create'])->name('task.create');
-  Route::get('/task/check/{id}' , [TareaController::class, 'check'])->name('task.check');
-  Route::get('/task/uncheck/{id}' , [TareaController::class, 'uncheck'])->name('task.uncheck');
+  Route::get('/task/check/{id}' , [TareaController::class, 'check'])->middleware('task_owner')->name('task.check');
+  Route::get('/task/uncheck/{id}' , [TareaController::class, 'uncheck'])->middleware('task_owner')->name('task.uncheck');
   Route::delete('/task/delete/{id}', [TareaController::class, 'delete'])->name('task.delete');
-  Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->name('task.edit');
-  Route::patch('/task/{id}', [TareaController::class, 'update'])->name('task.update');
+  Route::get('/task/edit/{id}', [TareaController::class, 'edit'])->middleware('task_owner')->name('task.edit');
+  Route::patch('/task/{id}', [TareaController::class, 'update'])->middleware('task_owner')->name('task.update');
+
   Route::get('/tasks/day/{date}', [TareaController::class, 'getTasksByDay'])->name('tasks.day');
 
   Route::post('/main', [TodoSearchBar::class, 'search'])->name('task.search');
@@ -54,6 +56,12 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/calentar/nextMonth', [TodoCalendar::class, 'nextMonth'])->name('calendar.nextMonth');
   Route::get('/calentar/previousMonth', [TodoCalendar::class, 'previousMonth'])->name('calendar.previousMonth');
+
+  Route::get('/admin/users', [AdminController::class, 'adminUsers'])->middleware('is_admin')->name('admin.users');
+  Route::get('/admin/user/{id}', [AdminController::class, 'adminUser'])->middleware('is_admin')->name('admin.user');
+  Route::delete('/admin/user/delete/{id}', [AdminController::class, 'deleteUser'])->middleware('is_admin')->name('admin.user.delete');
+  Route::view('/admin/register', 'admin.admin-register')->middleware('is_admin')->name('admin.register');
+  Route::post('/admin/register', [AdminController::class, 'register'])->middleware('is_admin')->name('admin.register.post');
 });
 
 require __DIR__ . '/auth.php';
